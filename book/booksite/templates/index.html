@@ -1,0 +1,17 @@
+{% for i in books %}
+
+
+Название: {{i.titile}}<br>
+Автор: {{i.author}}<br>
+Дата публикации: {{i.time_publication}} <br>
+Количество экземпляров: {{i.count}}<br>
+
+{% if not i in user_books %}
+<span>(Уже взято на руки)</span>
+
+{% else %}
+<a href="?id={{i.id}}">Взять книгу</a>
+{% endif %}
+<hr>
+
+{% endfor %}

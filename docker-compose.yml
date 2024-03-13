@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+
+  site:
+    image: sitedj
+    build: ./book
+    command: python manage.py runserver 0.0.0.0:5000
+    ports:
+      - "5000:5000"
+    networks:
+      - mynetwork
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: BRasZAI14SlNAapeOIi8
+      POSTGRES_DB: books
+    ports:
+      - "5432:5432"
+    networks:
+      - mynetwork
+
+  nginx:
+    image: nginx:1.16.0-alpine
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+    networks:
+      - mynetwork
+    depends_on:
+      - site
+      
+networks:
+  mynetwork:
+    driver: bridge
