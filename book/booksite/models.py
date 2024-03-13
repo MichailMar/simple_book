@@ -15,7 +15,7 @@ class Book(Model):
     """
     Модель таблицы с книгами
     """
-    titile = CharField("Название книги", blank=True)
+    title = CharField("Название книги", blank=True)
     author = CharField("Автор книги" ,blank=True)
     time_publication = DateTimeField("Дата публикации")
     count = PositiveIntegerField("Кол-во экземпляров", default=0)
@@ -23,7 +23,7 @@ class Book(Model):
     dept = ForeignKey("Dept", on_delete=CASCADE)
     
     def __str__(self):
-        return self.titile
+        return self.title
 
 class User(Model):
     """

@@ -5,8 +5,8 @@ from .models import Book, BookBorrow, User, Dept
 
 
 class BookSerializer(serializers.Serializer):
-    id = serializers.IntegerField()
-    titile = serializers.CharField()
+    id = serializers.IntegerField(read_only=True)
+    title = serializers.CharField()
     author = serializers.CharField()
     time_publication = serializers.DateTimeField()
     count = serializers.IntegerField()
