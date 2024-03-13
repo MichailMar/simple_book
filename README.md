@@ -7,4 +7,4 @@
 2. выполните мигарции 
   * docker-compose exec site python manage.py makemigrations 
   * docker-compose exec site python manage.py migrate
-3. Всё готово к использованию
+3. Всё готово к использованию. Сайт запускается на localhost:80
